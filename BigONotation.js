@@ -36,3 +36,33 @@ var t2 = performance.now();
 addUpTo2(1000000000, 'Solution 2');
 
 console.log(`Time elapsed: ${(t2 - t1) / 1000} seconds.`)
+// Counting the time it takes doesn't accurately represent the performance of the code
+// Big O counts the number of simple operations the computer has to perform instead
+// Big O notation is a way to formalize fuzzy counting
+// It allows us to talk formally about how the runtime of an algorithm grows as the inputs grow
+
+// Big O Notation
+
+// o(1) - Constant Time
+function addUpTo(n) {
+    return n * (n + 1) /2;
+}
+
+// o(n) - Linear Time
+function addUpTo(n) {
+    let total = 0;
+    for (let i = 1; i <= n; i++) {
+        total += i;
+    }
+    return total;
+}
+
+// o(n * n) - Quadratic Time
+// Nested loops creates o(n squared)
+function printAllPairs(n) {
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            console.log(i, j);
+        }
+    }
+}
