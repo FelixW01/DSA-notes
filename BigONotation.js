@@ -117,3 +117,6 @@ function double(arr) {
 // Object.values - O(n)
 // Object.entries - O(n)
 // hasOwnProperty - O(1)
+
+// Inserting elements into an array is O(n) because the array has to be re-indexed
+// O(n) grows in proportion of the size of the array
