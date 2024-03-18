@@ -118,5 +118,8 @@ function double(arr) {
 // Object.entries - O(n)
 // hasOwnProperty - O(1)
 
-// Inserting elements into an array is O(n) because the array has to be re-indexed
+// Inserting or removing elements into the beginning of an array is O(n) because the array has to be re-indexed
+// push & pop is faster than shift & unshift
+// Push & Pop - O(1)
+// shift & unshift - O(n)
 // O(n) grows in proportion of the size of the array
