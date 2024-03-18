@@ -47,6 +47,7 @@ function charCount(str) {
     // loop over string, for each character...
     for (let i = 0; i < str.length; i++) {
         const char = str[i].toLowerCase();
+       if (/[a-z0-9]/.test(char)) {
         // if the char is a number/letter AND is a key in object, add one to count
         if (result[char] > 0) {
             result[char]++;
@@ -55,12 +56,13 @@ function charCount(str) {
         else {
             result[char] = 1;
         };
+       }        
     }
     // return object at end
         return result;
         // if char is something else (space, period, etc.) don't do anything
 }
-console.log(charCount("Hi there!"));
+// console.log(charCount("Hi there!"));
 
 // Refactoring
 // Can you check the result?
@@ -70,3 +72,14 @@ console.log(charCount("Hi there!"));
 // Can you improve the performance of your solution?
 // Can you think of other ways to refactor?
 // How have other people solved this problem?
+
+function charCount2(str) {
+    let obj = {};
+    for (let char of str) {
+        char = char.toLowerCase();
+        if (/[a-z0-9]/.test(char)) {
+            obj[char] = ++obj[char] || 1;
+        }
+    }
+    return obj;
+}
