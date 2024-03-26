@@ -83,3 +83,5 @@ function charCount2(str) {
     }
     return obj;
 }
+
+// In JS regex's performance can vary in various browsers.
