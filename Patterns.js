@@ -72,8 +72,49 @@ function validAnagram(first, second) {
 // Use when you need to compare multiple pieces of data and to see if they consist of the same characters
 
 // Multiple Pointers
+// Creating pointers or values that correspond to an index or position and move towards the beginning, end or middle based on a certain condition
+// Naive solution, O(N^2) time complexity
+function sumZero(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i + 1; j < arr.length; j++) {
+            if(arr[i] + arr[j] === 0) {
+                return [arr[i], arr[j]];
+            }
+        }
+    }
+}
+// Refactored with Multiple Pointers
+function sumZero(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+    while(left < right) {
+        let sum = arr[left] + arr[right];
+        if(sum === 0) {
+            return [arr[left], arr[right]];
+        } else if(sum > 0) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+}
+// o(n) time complexity 2 pointers side by side
+function countUniqueValues(arr){
+ if(arr.length === 0) return 0;
+  var i = 0;
+  for (let j = 1; j < arr.length; j++) {
+     if (arr[i] !== arr[j]) {
+         i++
+         arr[i] = arr[j]
+     } 
+  }
+  return i + 1;
+}
+
 
 // Sliding Window
+
+
 
 // Divide and Conquer
 
