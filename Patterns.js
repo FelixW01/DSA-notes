@@ -70,7 +70,7 @@ function validAnagram(first, second) {
 // o(n) time complexity
 // validAnagram('anagram', 'nagaram') => true
 // Use when you need to compare multiple pieces of data and to see if they consist of the same characters
-
+// ----------------------------------------------------------------------------------------------- //
 // Multiple Pointers
 // Creating pointers or values that correspond to an index or position and move towards the beginning, end or middle based on a certain condition
 // Naive solution, O(N^2) time complexity
@@ -111,13 +111,72 @@ function countUniqueValues(arr){
   return i + 1;
 }
 
-
+// ----------------------------------------------------------------------------------------------- //
 // Sliding Window
-
-
-
+// This pattern involves creating a window which can either be an array or number from one position to another
+// Naive Solution O(N^2) time complexity
+function maxSubarraySum(arr, num) {
+    if(num > arr.length) {
+        return null;
+    }
+    var max = -Infinity;
+    for(let i = 0; i < arr.length - num + 1; i++) {
+        temp = 0;
+        for(let j = 0; j < num; j++) {
+            temp += arr[i + j];
+        }
+        if(temp > max) {
+            max = temp;
+        }
+    }
+    return max;
+}
+// Refactored with Sliding Window
+// o(n) time complexity
+function maxSubarraySum(arr, num) {
+    let maxSum = 0;
+    let tempSum = 0;
+    if(arr.length < num) return null;
+    for(let i = 0; i < num; i++) {
+        maxSum += arr[i];
+    }
+    tempSum = maxSum;
+    for(let i = num; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
+}
+// ----------------------------------------------------------------------------------------------- //
 // Divide and Conquer
-
+// This pattern involves dividing a data set into smaller chunks and then repeating a process with a subset of data
+// Naive Solution O(n)) time complexity, linear search
+function search( arr, val) {
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] === val) {
+            return i;
+        }
+    }
+    return -1;
+}
+// Refactored with Divide and Conquer
+// o(log n) time complexity, binary search
+function search(arr, val) {
+    let min = 0;
+    let max = arr.length - 1;
+    while(min <= max) {
+        let middle = Math.floor((min + max) / 2);
+        let currentElement = arr[middle];
+        if(arr[middle] < val) {
+            min = middle + 1;
+        } else if(arr[middle] > val) {
+            max = middle - 1;
+        } else {
+            return middle;
+        }
+    }
+    return -1;
+}
 // Dynamic Programming
 
 // Greedy Algorithms
