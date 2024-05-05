@@ -1,7 +1,7 @@
 // Problem Solving Patterns //
 
 // Frequency Counter Pattern
-// This pattern uses ocjects or sets to collect values/frequencies of values
+// This pattern uses objects or sets to collect values/frequencies of values
 // This can often avoid the need for nested loops or O(N^2) operations with arrays/strings
 // Naive approach, O(N^2) time complexity
 function same(arr1, arr2) {
@@ -182,3 +182,7 @@ function search(arr, val) {
 // Greedy Algorithms
 
 // Backtracking
+
+// Recursion
+// A process (a function in our case) that calls itself
+// When we write recursive functions, we keep pushing new functions onto the call stack
